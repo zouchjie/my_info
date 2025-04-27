@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小明 - 上海科技大学生物专业</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --dark-text: #2c3e50;
+            --light-text: #7f8c8d;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-text);
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-text);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        /* 主要内容区域 */
+        .main-content {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        /* 开题计划样式 */
+        .research-proposal {
+            background-color: var(--light-bg);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        
+        .research-proposal h3 {
+            color: var(--secondary-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .research-proposal ul, .research-proposal ol {
+            margin-bottom: 20px;
+            padding-left: 30px;
+        }
+        
+        .research-proposal li {
+            margin-bottom: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .highlight {
+            background-color: rgba(231, 76, 60, 0.1);
+            padding: 15px;
+            border-left: 4px solid var(--accent-color);
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: var(--dark-text);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .research-proposal {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">小明</a>
+                <div class="nav-links">
+                    <a href="#about">个人简介</a>
+                    <a href="#education">教育背景</a>
+                    <a href="#research">研究方向</a>
+                    <a href="#proposal">开题计划</a>
+                    <a href="#contact">联系方式</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <img src="https://via.placeholder.com/150" alt="小明" class="avatar">
+            <h1>小明</h1>
+            <p>上海科技大学生物专业研究生 | 膜蛋白与癌症治疗研究方向</p>
+        </div>
+    </section>
+    
+    <section class="main-content">
+        <div class="container">
+            <section id="about">
+                <div class="section-title">
+                    <h2>个人简介</h2>
+                </div>
+                <p>我是上海科技大学生物专业的研究生小明，专注于膜蛋白结构与功能研究，特别是针对癌症治疗的创新方法开发。我的研究兴趣包括蛋白质工程、靶向药物递送系统和癌症代谢调控。</p>
+            </section>
+            
+            <section id="education">
+                <div class="section-title">
+                    <h2>教育背景</h2>
+                </div>
+                <ul>
+                    <li><strong>上海科技大学</strong> - 生物专业硕士 (2022-至今)</li>
+                    <li><strong>XX大学</strong> - 生物技术学士 (2018-2022)</li>
+                </ul>
+            </section>
+            
+            <section id="research">
+                <div class="section-title">
+                    <h2>研究方向</h2>
+                </div>
+                <p>我的研究主要聚焦于开发新型膜蛋白靶向技术，特别是基于LYTAC(溶酶体靶向嵌合体)的癌症治疗方法。通过结合蛋白质工程和纳米技术，设计能够特异性降解癌细胞关键转运蛋白的创新分子工具。</p>
+            </section>
+            
+            <section id="proposal">
+                <div class="section-title">
+                    <h2>开题计划</h2>
+                </div>
+                <div class="research-proposal">
+                    <h3>基于膜蛋白LYTAC技术靶向降解癌细胞转运蛋白的设计与研究</h3>
+                    
+                    <h3>一、研究背景与意义</h3>
+                    <p>癌细胞依赖特定的转运蛋白（如GLUT1、MCT1、ASCT2等）维持其异常代谢需求（如Warburg效应），这些蛋白已成为肿瘤治疗的潜在靶点。然而，传统小分子抑制剂易引发耐药性（如GLUT1代偿性上调），而抗体药物难以有效内化降解膜蛋白。</p>
+                    <p><strong>溶酶体靶向嵌合体（LYTAC）</strong>技术通过双特异性分子桥接靶蛋白与内吞受体，诱导溶酶体降解，为膜蛋白靶向提供了新思路。但现有LYTAC主要针对分泌蛋白或膜蛋白脱落片段，对<strong>完整膜蛋白（如转运蛋白）的降解效率低</strong>，亟需创新设计。</p>
+                    
+                    <h3>二、研究内容与方案</h3>
+                    <h4>2.1 研究目标</h4>
+                    <ol>
+                        <li>设计靶向癌细胞转运蛋白（GLUT1/MCT1）的膜蛋白LYTAC，验证其降解效率。</li>
+                        <li>开发外源膜融合递送系统，实现膜蛋白LYTAC的精准定位与功能激活。</li>
+                        <li>评估膜蛋白LYTAC对肿瘤细胞代谢和增殖的抑制作用。</li>
+                    </ol>
+                    
+                    <h4>2.2 技术路线</h4>
+                    <table>
+                        <tr>
+                            <th>阶段</th>
+                            <th>内容</th>
+                        </tr>
+                        <tr>
+                            <td>第1-6个月</td>
+                            <td>LYTAC分子设计、体外结合活性验证</td>
+                        </tr>
+                        <tr>
+                            <td>第7-12个月</td>
+                            <td>膜融合递送系统构建与优化</td>
+                        </tr>
+                        <tr>
+                            <td>第13-18个月</td>
+                            <td>体内外抗肿瘤效果评估</td>
+                        </tr>
+                        <tr>
+                            <td>第19-24个月</td>
+                            <td>机制深入研究与论文撰写</td>
+                        </tr>
+                    </table>
+                    
+                    <h3>三、创新点</h3>
+                    <ol>
+                        <li><strong>首创新型膜蛋白LYTAC架构</strong>：通过膜锚定与多价设计，解决转运蛋白胞外表位小、结合效率低的问题。</li>
+                        <li><strong>外源膜融合递送技术</strong>：结合脂质体与病毒包膜工程，实现膜蛋白LYTAC的精准定位与功能激活。</li>
+                        <li><strong>代谢重编程干预</strong>：直接降解转运蛋白，阻断癌细胞能量供应，避免传统抑制剂的反馈激活。</li>
+                    </ol>
+                    
+                    <div class="highlight">
+                        <p><strong>备注</strong>：本研究通过整合膜蛋白工程、纳米递送和蛋白降解技术，有望为癌症治疗提供突破性策略。</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="contact">
+                <div class="section-title">
+                    <h2>联系方式</h2>
+                </div>
+                <p>邮箱: xiaoming@shanghaitech.edu.cn</p>
+                <p>实验室: 上海科技大学生命科学与技术学院</p>
+            </section>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-researchgate"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2023 小明 - 上海科技大学. 保留所有权利。</p>
+        </div>
+    </footer>
+    
+    <!-- Font Awesome 图标库 -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
